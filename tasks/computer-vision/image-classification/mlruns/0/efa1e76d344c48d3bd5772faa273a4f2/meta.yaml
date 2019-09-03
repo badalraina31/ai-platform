@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Brain%20Tumor%20Detection%20-%20mlflow%20LATEST/mlruns/0/efa1e76d344c48d3bd5772faa273a4f2/artifacts
+end_time: 1567536975982
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: efa1e76d344c48d3bd5772faa273a4f2
+run_uuid: efa1e76d344c48d3bd5772faa273a4f2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1567526221607
+status: 3
+tags: []
+user_id: MohamedAliHabib
