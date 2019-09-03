@@ -1,8 +1,0 @@
-channels:
-- defaults
-dependencies:
-- python=3.6.7
-- tensorflow==1.11.0
-- pip:
-  - mlflow
-name: mlflow-env
