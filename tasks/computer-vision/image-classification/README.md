@@ -16,6 +16,8 @@ The dataset contains 2 folders: yes and no which contains 253 Brain MRI Images. 
 
 ## Data Augmentation:
 
+**Note:** You can use the Data Augmentation notebook to generate images for training using the original images from the dataset.
+
 **Why did I use data augmentation?**
 
 Since this is a small dataset, There wasn't enough examples to train the neural network. Also, data augmentation was useful in taclking the data imbalance issue in the data.<br>
