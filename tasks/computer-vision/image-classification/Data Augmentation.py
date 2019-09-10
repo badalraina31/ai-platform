@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 from os import listdir
 import time    
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # In[2]:

@@ -33,7 +33,7 @@ from os import listdir
 import mlflow
 import mlflow.keras
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # ## Data Preparation & Preprocessing
