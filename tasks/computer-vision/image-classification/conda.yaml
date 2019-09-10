@@ -1,0 +1,15 @@
+channels:
+- defaults
+dependencies:
+- python=3.6.7
+- mlflow==1.2.0
+- tensorflow==1.11.0
+- Keras==2.2.4
+- numpy==1.15.3
+- matplotlib==3.0.1
+- opencv_python==3.4.3
+- imutils==0.5.3
+- scikit_learn==0.20.0
+- pip:
+  - mlflow
+name: mlflow-env
