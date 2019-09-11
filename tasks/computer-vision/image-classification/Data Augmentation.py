@@ -89,9 +89,9 @@ start_time = time.time()
 augmented_data_path = 'augmented data/'
 
 # augment data for the examples with label equal to 'yes' representing tumurous examples
-augment_data(file_dir=yes_path, n_generated_samples=6, save_to_dir=augmented_data_path+'yes')
+augment_data(file_dir='yes/', n_generated_samples=6, save_to_dir=augmented_data_path+'yes')
 # augment data for the examples with label equal to 'no' representing non-tumurous examples
-augment_data(file_dir=no_path, n_generated_samples=9, save_to_dir=augmented_data_path+'no')
+augment_data(file_dir='no/', n_generated_samples=9, save_to_dir=augmented_data_path+'no')
 
 end_time = time.time()
 execution_time = (end_time - start_time)

@@ -105,8 +105,8 @@ def crop_brain_contour(image, plot=False):
 # In[3]:
 
 
-ex_img = cv2.imread('augmented data/yes/aug_Y1_0_2900.jpg')
-ex_new_img = crop_brain_contour(ex_img, True)
+#ex_img = cv2.imread('augmented data/yes/aug_Y1_0_2900.jpg')
+#ex_new_img = crop_brain_contour(ex_img, True)
 
 
 # ### Load up the data:
@@ -233,7 +233,7 @@ def plot_sample_images(X, y, n=50):
 # In[7]:
 
 
-plot_sample_images(X, y)
+#plot_sample_images(X, y)
 
 
 # ### Split the data:
@@ -553,8 +553,8 @@ history = model.history.history
 # In[29]:
 
 
-for key in history.keys():
-    print(key)
+#for key in history.keys():
+#    print(key)
 
 
 # ## Plot Loss & Accuracy
@@ -600,28 +600,60 @@ plot_metrics(history)
 
 
 # find the iteration in which we had the best validation accuracy
-history['val_acc'].index(max(history['val_acc'])) + 1
+best_validation_accuracy = max(history['val_acc'])
+best_iteration = history['val_acc'].index(best_validation_accuracy) + 1
 
 
 # Concretely, the model at the 24th iteration with validation accuracy of 90%
 
 # In[41]:
 
+def best_model_file_name(path, best_validation_accuracy):
+    """
+    This method returns the file path for the model with best validation accuracy.
+    Arguemnts:
+        path: directory path for the file where the files .models exist.
+    Returns:
+        file_name: a string representing the file name for the model with the best validation accuracy
+    """
 
-best_model = load_model(filepath='models/cnn-parameters-improvement-24-0.90.model')
+    best_models = [] # a list of file names for models that has the best validation accuracy
+    for filename in listdir(path):
+        
+        # grab the part of the name that represents the accuracy and compare it with the best validation accuracy
+        acc_part = filename[-10:-6] # the part of the file name that represents the accuracy
+        best_val_acc = str(np.round(best_validation_accuracy, 2))
+        # if best_val_acc is equal to something like '0.4', append a zero to look like this '0.40'
+        # that's to make easier to compare with accuracy part of the file names.
+        if len(best_val_acc) < 4: 
+            best_val_acc += '0'
+        #print(best_val_acc)
+        if acc_part == best_val_acc:
+            best_models.append(filename)
+
+    #print(best_models)
+    # grab the last model of the models that has the best validation accuracy
+    file_name = best_models[-1]
+    return file_name
+
+# grab the name of the file for the model with the best validation accuracy
+filename = best_model_file_name('models/', best_validation_accuracy)
+
+best_model = load_model(filepath=f'models/{filename}')
+#best_model = load_model(filepath='models/cnn-parameters-improvement-24-0.90.model')
 
 
 # In[42]:
 
 
-best_model.metrics_names
+#best_model.metrics_names
 
 
 # Evaluate the best model on the testing data:
 
 # In[43]:
 
-
+print("Evaluate the best model on the testing data:")
 loss, acc = best_model.evaluate(x=X_test, y=y_test)
 
 
@@ -629,7 +661,7 @@ loss, acc = best_model.evaluate(x=X_test, y=y_test)
 
 # In[44]:
 
-
+print("Accuracy of the best model on the testing data")
 print (f"Test Loss = {loss}")
 print (f"Test Accuracy = {acc}")
 
@@ -638,7 +670,7 @@ print (f"Test Accuracy = {acc}")
 
 # In[45]:
 
-
+print("F1 score for the best model on the testing data:")
 y_test_prob = best_model.predict(X_test)
 
 
