@@ -15,7 +15,7 @@ gunicorn==19.9.0
 idna==2.8
 itsdangerous==1.1.0
 jinja2==2.10.1
-mako==1.0.12
+mako==1.2.2
 markupsafe==1.1.1
 mlflow==1.0.0
 numpy==1.16.4
